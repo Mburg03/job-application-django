@@ -14,3 +14,9 @@ class ApplicationForm(forms.Form):
     job_title = forms.CharField(max_length=100)
     employer = forms.CharField(max_length=100)
     employment_duration = forms.CharField(max_length=50)
+
+
+class ContactUsForm(forms.Form):
+    username = forms.CharField(max_length=80)
+    email = forms.EmailField()
+    message = forms.CharField(max_length=280)

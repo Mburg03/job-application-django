@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d2b0412-62c9-4390-aa40-08510360cab9" name="Changes" comment="Initial commit: setting up django">
+      <change afterPath="$PROJECT_DIR$/job_application/templates/contact.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job_application/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job_application/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_application/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/templates/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job_application/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job_application/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job_application/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job_application/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/job_application/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

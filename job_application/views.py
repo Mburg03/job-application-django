@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ApplicationForm
+from .forms import ApplicationForm, ContactUsForm
 from .models import Form
 from django.contrib import messages
 from django.core.mail import send_mail, EmailMessage
@@ -35,7 +35,6 @@ def index(request):
             # duration of employment
             duration_of_last_employment = form.cleaned_data["employment_duration"]
 
-
             message_body = f"""
             Hey, {first_name}! Thanks for using our platform! 😄
             Here you have your information: 
@@ -60,9 +59,31 @@ def index(request):
                              "Form submitted successfully!")
         else:
             print(form.errors)
-    print("just here")
+
     return render(request, template_name='index.html', context={'current_date': formatted_date})
 
 
 def about(request):
     return render(request, 'about.html')
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
+            message = form.cleaned_data["message"]
+
+            complete_message = f"""
+            {message}
+            From: {email}
+            """
+
+            contact_us_email = EmailMessage(subject=f"{username} needs help with the job application form! 🤠",
+                                            body=complete_message, to=["marioua289@gmail.com"])
+            contact_us_email.send()
+            messages.success(request,
+                             "Email submitted successfully!")
+
+    return render(request, 'contact.html')
