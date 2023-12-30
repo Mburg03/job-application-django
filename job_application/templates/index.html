@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="mt-4 mb-4">Job Application Form</h1>
+<h1 class="mt-4">Job Application Form 📩</h1>
+<p class="mb-4 text-secondary"> Tell us about yourself!</p>
 <form method="post">
     {% csrf_token %}
+    <!-- Text fields for user information -->
     <div class="form-group mb-4">
         <label for="first_name">First name</label>
         <input class="form-control" type="text" id="first_name" name="first_name" required>
@@ -12,34 +14,73 @@
         <input class="form-control" type="text" id="last_name" name="last_name" required>
     </div>
     <div class="form-group mb-4">
-        <label for="date">Date</label>
-        <input class="form-control" type="date" id="date" name="date">
+        <label for="age">Age</label>
+        <input class="form-control" type="number" min="18"  max="70" id="age" name="age" required>
     </div>
     <div class="form-group mb-4">
-        <label for="email">Email</label>
-        <input class="form-control" type="email" id="email" name="email">
+        <label for="date">Date you can start working</label>
+        <input class="form-control" type="date" id="date" name="date" min="{{ current_date }}">
     </div>
 
-    <div class="container text-center">
-        <label for="occupation" class="mb-4">Current occupation</label>
-        <br>
+    <h5 class="mb-4">How can we contact you? ☎️</h5>
+    <div class="form-group mb-4">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="phone_number">Phone number</label>
+        <input class="form-control" type="text" id="phone_number" name="phone_number" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="city">City</label>
+        <input class="form-control" type="text" id="city" name="city" required>
+    </div>
 
+    <div class="form-group mb-4">
+        <label for="street_address">Street address</label>
+        <input class="form-control" type="text" id="street_address" name="street_address" required>
+    </div>
+
+    <!-- Radio buttons for occupation -->
+    <div class="container text-center">
+        <label for="occupation" class="mb-4"><strong>Current occupation</strong></label>
+        <br>
         <div class="row" id="occupation">
             <div class="col-md-6 mx-auto centered-div">
-                <input class="btn-check form-control" type="radio" id="employed" name="occupation" value="employed">
-                <label class="btn btn-outline-secondary" for="employed">Employed </label>
+                <input class="btn-check form-control" type="radio" id="employed" name="occupation" value="employed" required>
+                <label class="btn btn-outline-primary" for="employed">Employed </label>
 
-                <input class="btn-check form-control" type="radio" id="unemployed" name="occupation" value="unemployed">
-                <label class="btn btn-outline-secondary" for="unemployed">Unemployed </label>
+                <input class="btn-check form-control" type="radio" id="unemployed" name="occupation" value="unemployed" required>
+                <label class="btn btn-outline-primary" for="unemployed">Unemployed </label>
 
                 <input class="btn-check form-control" type="radio" id="self-employed" name="occupation"
-                       value="self-employed">
-                <label class="btn btn-outline-secondary" for="self-employed">Self-employed </label>
+                       value="self-employed" required>
+                <label class="btn btn-outline-primary" for="self-employed">Self-employed </label>
 
-                <input class="btn-check form-control" type="radio" id="student" name="occupation" value="student">
-                <label class="btn btn-outline-secondary" for="student">Student</label>
+                <input class="btn-check form-control" type="radio" id="student" name="occupation" value="student" required>
+                <label class="btn btn-outline-primary" for="student">Student</label>
             </div>
         </div>
+    </div>
+
+    <h3 class="mt-4">What about your last experience working? (optional)</h3>
+    <div class="container mt-5">
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>Job Title</th>
+            <th>Company Name</th>
+            <th>Dates of Employment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="form-control" name="job_title" placeholder="Enter job title" required></td>
+            <td><input type="text" class="form-control" name="employer" placeholder="Enter company name" required></td>
+            <td><input type="text" class="form-control" name="employment_duration" placeholder="Enter dates of employment" required></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <button class="btn btn-primary mb-4 mt-4" type="submit">Submit</button>
     {% if messages %}
@@ -49,6 +90,5 @@
         {% endfor %}
     </div>
     {% endif %}
-
 </form>
 {% endblock %}
