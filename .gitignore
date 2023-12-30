@@ -1,2 +1,4 @@
 .idea
 ./.idea
+mysite/.env
+job_application/.env
